@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.test.controllerFX.MainPageController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <AnchorPane prefHeight="50.0" prefWidth="1100.0">
+               <children>
+                  <ImageView fitHeight="42.0" fitWidth="54.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/crypto.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="50.0" layoutY="13.0" prefHeight="26.0" prefWidth="106.0" text="Crypto Area">
+                     <font>
+                        <Font name="Times New Roman" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="42.0" fitWidth="58.0" layoutX="1058.0" layoutY="4.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/close.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="50.0" prefHeight="550.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/user.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="welcomeLabel" alignment="CENTER" layoutX="26.0" layoutY="208.0" prefHeight="42.0" prefWidth="150.0" text="Welcome,">
+                     <font>
+                        <Font name="Times New Roman" size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="allFilesButton" layoutX="17.0" layoutY="277.0" mnemonicParsing="false" onAction="#loadAllFiles" prefHeight="30.0" prefWidth="174.0" text="All files">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Button fx:id="uploadedFilesButton" layoutX="18.0" layoutY="323.0" mnemonicParsing="false" onAction="#loadUploadedFiles" prefHeight="30.0" prefWidth="174.0" text="Uploaded files">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Button fx:id="downloadedFilesButton" layoutX="18.0" layoutY="372.0" mnemonicParsing="false" onAction="#loadDownloadedFiles" prefHeight="30.0" prefWidth="174.0" text="Downloaded files">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="20.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/all.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="19.0" fitWidth="35.0" layoutX="20.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/uploaded.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="19.0" fitWidth="26.0" layoutX="20.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/downloaaded.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="35.0" fitWidth="60.0" layoutX="70.0" layoutY="495.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/logout.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="allFilesAnchorPane" layoutX="201.0" layoutY="50.0" prefHeight="550.0" prefWidth="900.0">
+               <children>
+                  <TableView fx:id="allFilesTable" layoutY="58.0" onMouseClicked="#selectFileToDownload" prefHeight="398.0" prefWidth="900.0">
+                    <columns>
+                      <TableColumn fx:id="allFilesName" prefWidth="348.80003356933594" text="name" />
+                      <TableColumn fx:id="allFilesBytes" prefWidth="239.99993896484375" text="bytes" />
+                        <TableColumn fx:id="allFilesDate" prefWidth="295.199951171875" text="date" />
+                    </columns>
+                  </TableView>
+                  <TextField fx:id="searchTextField" layoutX="36.0" layoutY="10.0" prefHeight="35.0" prefWidth="250.0" promptText="Search">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <ImageView fitHeight="35.0" fitWidth="26.0" layoutX="1.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/search.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutY="502.0" mnemonicParsing="false" onAction="#uploadFile" prefHeight="35.0" prefWidth="94.0" text="Upload">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="147.0" layoutY="461.0" prefHeight="27.0" prefWidth="65.0" text="File name">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="fileNameToUploadTextField" layoutX="213.0" layoutY="460.0" prefHeight="30.0" prefWidth="125.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <ChoiceBox fx:id="chooseBoxForMode" layoutX="213.0" layoutY="508.0" prefHeight="26.0" prefWidth="126.0" />
+                  <Button layoutY="460.0" mnemonicParsing="false" onMouseClicked="#chooseFileToUpload" prefHeight="30.0" prefWidth="94.0" text="Choose file">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="791.0" layoutY="499.0" mnemonicParsing="false" onAction="#downloadFile" prefHeight="35.0" prefWidth="94.0" text="Download">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="147.0" layoutY="508.0" prefHeight="26.0" prefWidth="66.0" text="Mode">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="791.0" layoutY="462.0" mnemonicParsing="false" onAction="#choosePath" prefHeight="30.0" prefWidth="94.0" text="Set path">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children></AnchorPane>
+            <AnchorPane fx:id="downloadedFilesAnchorPane" layoutX="200.0" layoutY="50.0" prefHeight="539.0" prefWidth="900.0" visible="false">
+               <children>
+                  <TableView fx:id="downloadedFilesTable" prefHeight="539.0" prefWidth="900.0">
+                     <columns>
+                        <TableColumn fx:id="downloadedFilesName" prefWidth="233.59999084472656" text="name" />
+                        <TableColumn fx:id="downloadedFileBytes" prefWidth="140.80001831054688" text="bytes" />
+                        <TableColumn fx:id="downloadedFileDate" prefWidth="151.20001220703125" text="date" />
+                        <TableColumn fx:id="downloadedFileStatus" prefWidth="172.0" text="status" />
+                        <TableColumn fx:id="downloadedFileProgress" prefWidth="192.79998779296875" text="progress" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="uploadedFilesAnchorPane" layoutX="200.0" layoutY="50.0" prefHeight="550.0" prefWidth="894.0" visible="false">
+               <children>
+                  <TableView fx:id="uploadedFilesTable" prefHeight="539.0" prefWidth="900.0">
+                     <columns>
+                        <TableColumn fx:id="uploadedFilesName" prefWidth="233.59999084472656" text="name" />
+                        <TableColumn fx:id="uploadedFilesBytes" prefWidth="140.80001831054688" text="bytes" />
+                        <TableColumn fx:id="uploadedFilesDate" prefWidth="151.20001220703125" text="date" />
+                        <TableColumn fx:id="uploadedFilesStatus" prefWidth="172.0" text="status" />
+                        <TableColumn fx:id="uploadedFilesProgress" prefWidth="194.40008544921875" text="progress" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
